@@ -19,7 +19,7 @@ jobs:
     runs-on: macOS-latest
     strategy:
       matrix:
-        r-version: [3.5, 3.6]
+        r-version: [4.0.3]
 
     steps:
       - uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
         run: |
           install.packages(c("remotes", "rcmdcheck"))
           remotes::install_deps(dependencies = TRUE)
-        shell: Rscript {0}
+        shell: bash
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
-        shell: Rscript {0}
+        shell: bash
