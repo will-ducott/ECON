@@ -66,7 +66,8 @@ MrgCost <- function(deltaTC , deltaQ){
 ProfitMaxQ <- function(deltaTR, deltaTC, deltaQ){
   MR <- deltaTR/deltaQ
   MC <- deltaTC/deltaQ
-  Q <- MC=MR
-  return(Q)
+  if (MR=MC){
+    Q <- MR
+  return(Q)}
 }
 
